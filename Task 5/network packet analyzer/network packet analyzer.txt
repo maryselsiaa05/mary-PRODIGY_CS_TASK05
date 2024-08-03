@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+// Simulated packet structure
+struct Packet {
+    std::string sourceIP;
+    std::string destIP;
+    int length;
+    std::string data;
+};
+
+// Function to simulate analyzing a packet
+void analyzePacket(const Packet &packet) {
+    std::cout << "Analyzing Packet:" << std::endl;
+    std::cout << "Source IP: " << packet.sourceIP << std::endl;
+    std::cout << "Destination IP: " << packet.destIP << std::endl;
+    std::cout << "Length: " << packet.length << " bytes" << std::endl;
+    std::cout << "Data: " << packet.data << std::endl;
+    std::cout << "-------------------------------" << std::endl;
+}
+
+// Simulated function to capture and analyze packets
+void captureAndAnalyzePackets(const std::vector<Packet> &packets) {
+    for (const auto &packet : packets) {
+        analyzePacket(packet);
+    }
+}
+
+int main() {
+    // Simulated list of packets
+    std::vector<Packet> packets = {
+        {"192.168.1.1", "192.168.1.2", 60, "Packet data 1"},
+        {"192.168.1.2", "192.168.1.3", 100, "Packet data 2"},
+        {"192.168.1.3", "192.168.1.4", 150, "Packet data 3"}
+    };
+
+    // Simulate capturing and analyzing packets
+    captureAndAnalyzePackets(packets);
+
+    return 0;
+}
+
